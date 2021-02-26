@@ -4,7 +4,7 @@
 #include <cmath>
 #include "math/constants.h"
 
-
+namespace dsp {
 namespace math {
 
 template <typename T>
@@ -95,7 +95,7 @@ public:
     Complex operator/ (const Complex& other) const
     {
         T denomiator = (other.m_real * other.m_real) + (other.m_image * other.m_image);
-        denomiator = (denomiator == 0) ? EPSILON : denomiator;  // prevent to devide by 0
+        denomiator = (denomiator == 0) ? DSP_EPSILON : denomiator;  // prevent to devide by 0
         return (*this) * other / denomiator;
     } 
 
@@ -181,3 +181,4 @@ Complex<T> angle2complex(T radius, T angle)
 }
 
 }  // end of namespace 'math'
+}  // end of namespace 'dsp'
